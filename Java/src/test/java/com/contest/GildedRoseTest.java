@@ -12,13 +12,13 @@ public class GildedRoseTest {
 
 	@Test
 	public void should_fix_me() {
-		Item[] items = new Item[] { new Item("normal", 10, 20) };
+		Goods[] items = new Goods[] { new Goods("normal", 10, 20) };
 		GildedRose gildedRose = new GildedRose(items);
 
 		gildedRose.updateQuality();
 
-		assertEquals(9, (gildedRose.items[0]).sellIn);
-		assertEquals(19, gildedRose.items[0].quality);
+		assertEquals(9, (gildedRose.goods[0]).sellIn);
+		assertEquals(19, gildedRose.goods[0].quality);
 	}
 
 	// should_return_ticket_when_one_car_park_given_parkinglot_have_restspace()
@@ -26,13 +26,13 @@ public class GildedRoseTest {
 	@Test
 	public void should_quality_reduce_two_when_one_shop_given_aged_brie_goods() {
 		
-		AgedBrie[] items = new AgedBrie[] { new AgedBrie("ageBrie1", 0, 20),
-				new AgedBrie("ageBrie2", 0, 10) };
+		NormalGoods[] items = new NormalGoods[] { new NormalGoods("normal1", 0, 10),
+				new NormalGoods("normal2", 0, 5) };
 		GildedRose gildedRose = new GildedRose(items);
 
 		gildedRose.updateQuality();
-		assertEquals(18, (gildedRose.items[0]).quality);
-		assertEquals(8, gildedRose.items[1].quality);
+		assertEquals(8, (gildedRose.goods[0]).quality);
+		assertEquals(3, gildedRose.goods[1].quality);
 	}
 	
 	
@@ -46,23 +46,25 @@ public class GildedRoseTest {
 
 		gildedRose.updateQuality();
 		
-		assertTrue(gildedRose.items[0].quality >= 0);
-		assertTrue(gildedRose.items[1].quality >= 0);
+		assertTrue(gildedRose.goods[0].quality >= 0);
+		assertTrue(gildedRose.goods[1].quality >= 0);
 		
 	}
 	
-	//Quality of an item is never negative
+	
 		@Test
-		public void should_quality_add_one_when_one_shop_given_normal_goods_date_passed() {
+		public void should_quality_add_one_when_one_shop_given_agedbrie_goods() {
 
-			NormalGoods[] items = new NormalGoods[] { new NormalGoods("normal1", 8, 10),
-					new NormalGoods("normal2", 15, 5) };
+			
+			
+			AgedBrieGoods[] items = new AgedBrieGoods[] { new AgedBrieGoods("ageBrie1", 0, 10),
+					new AgedBrieGoods("ageBrie2", 0, 5) };
 			GildedRose gildedRose = new GildedRose(items);
 
 			gildedRose.updateQuality();
 			
-			assertEquals(11, (gildedRose.items[0]).quality);
-			assertEquals(6, gildedRose.items[1].quality);
+			assertEquals(11, (gildedRose.goods[0]).quality);
+			assertEquals(6, gildedRose.goods[1].quality);
 			
 		}
 	
