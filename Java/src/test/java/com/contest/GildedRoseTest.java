@@ -117,5 +117,38 @@ public class GildedRoseTest {
 			
 		}
 		
+		
+		@Test
+		public void should_quality_add_two_when_one_shop_given_backstagepasses_goods_sellin_greater_than_zero_less_than_five() {
+
+			
+			
+			BackstagePassesGoods[] items = new BackstagePassesGoods[] { new BackstagePassesGoods("ageBrie1", 5, 10),
+					new BackstagePassesGoods("ageBrie2", 3, 5) };
+			GildedRose gildedRose = new GildedRose(items);
+
+			gildedRose.updateQuality();
+			
+			assertEquals(13, (gildedRose.goods[0]).quality);
+			assertEquals(8, gildedRose.goods[1].quality);
+			
+		}
+		
+		@Test
+		public void should_quality_add_two_when_one_shop_given_backstagepasses_goods_sellin_equal_zero() {
+
+			
+			
+			BackstagePassesGoods[] items = new BackstagePassesGoods[] { new BackstagePassesGoods("ageBrie1", 0, 10),
+					new BackstagePassesGoods("ageBrie2", 0, 5) };
+			GildedRose gildedRose = new GildedRose(items);
+
+			gildedRose.updateQuality();
+			
+			assertEquals(0, (gildedRose.goods[0]).quality);
+			assertEquals(0, gildedRose.goods[1].quality);
+			
+		}
+		
 	
 }
