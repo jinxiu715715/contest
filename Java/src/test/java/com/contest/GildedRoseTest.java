@@ -73,14 +73,14 @@ public class GildedRoseTest {
 
 			
 			
-			SulfurasGoods[] items = new SulfurasGoods[] { new SulfurasGoods("ageBrie1", 0, 10),
-					new SulfurasGoods("ageBrie2", 3, 5) };
+			SulfurasGoods[] items = new SulfurasGoods[] { new SulfurasGoods("ageBrie1", 0, 80),
+					new SulfurasGoods("ageBrie2", 3, 80) };
 			GildedRose gildedRose = new GildedRose(items);
 
 			gildedRose.updateQuality();
 			
-			assertEquals(10, (gildedRose.goods[0]).quality);
-			assertEquals(5, gildedRose.goods[1].quality);
+			assertEquals(80, (gildedRose.goods[0]).quality);
+			assertEquals(80, gildedRose.goods[1].quality);
 			
 		}
 		

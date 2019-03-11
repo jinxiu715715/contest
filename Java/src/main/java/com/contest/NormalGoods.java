@@ -9,16 +9,15 @@ public class NormalGoods extends Goods {
 
 	public void updateQuality() {
 		// TODO Auto-generated method stub
-		
 
-		if (super.sellIn > 0 && super.quality>0) {
+		if (super.sellIn > 0 && super.quality > 0) {
 
 			super.quality--;
 
-		} 
-		if(super.sellIn <= 0 && super.quality>2){
+		}
+		if (super.sellIn <= 0 && super.quality > 2) {
 			super.quality -= 2;
-		}else {
+		} else {
 			super.quality = 0;
 		}
 
