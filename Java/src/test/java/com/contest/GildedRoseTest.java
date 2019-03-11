@@ -30,7 +30,7 @@ public class GildedRoseTest {
 		GildedRose gildedRose = new GildedRose(items);
 
 		gildedRose.updateQuality();
-		assertEquals(18, (gildedRose.items[0]).sellIn);
-		assertEquals(8, gildedRose.items[0].quality);
+		assertEquals(18, (gildedRose.items[0]).quality);
+		assertEquals(8, gildedRose.items[1].quality);
 	}
 }
