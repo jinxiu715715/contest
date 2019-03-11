@@ -91,7 +91,7 @@ public class GildedRoseTest {
 			
 			
 			BackstagePassesGoods[] items = new BackstagePassesGoods[] { new BackstagePassesGoods("ageBrie1", 11, 10),
-					new BackstagePassesGoods("ageBrie2", 0, 5) };
+					new BackstagePassesGoods("ageBrie2", 15, 5) };
 			GildedRose gildedRose = new GildedRose(items);
 
 			gildedRose.updateQuality();
@@ -101,7 +101,21 @@ public class GildedRoseTest {
 			
 		}
 		
-		
+		@Test
+		public void should_quality_add_two_when_one_shop_given_backstagepasses_goods_sellin_greater_than_five_less_than_or_equal_ten() {
+
+			
+			
+			BackstagePassesGoods[] items = new BackstagePassesGoods[] { new BackstagePassesGoods("ageBrie1", 10, 10),
+					new BackstagePassesGoods("ageBrie2", 6, 5) };
+			GildedRose gildedRose = new GildedRose(items);
+
+			gildedRose.updateQuality();
+			
+			assertEquals(12, (gildedRose.goods[0]).quality);
+			assertEquals(7, gildedRose.goods[1].quality);
+			
+		}
 		
 	
 }
