@@ -67,5 +67,41 @@ public class GildedRoseTest {
 			assertEquals(6, gildedRose.goods[1].quality);
 			
 		}
+		//Sulfuras
+		@Test
+		public void should_quality_never_update_when_one_shop_given_sulfuras_goods() {
+
+			
+			
+			SulfurasGoods[] items = new SulfurasGoods[] { new SulfurasGoods("ageBrie1", 0, 10),
+					new SulfurasGoods("ageBrie2", 3, 5) };
+			GildedRose gildedRose = new GildedRose(items);
+
+			gildedRose.updateQuality();
+			
+			assertEquals(10, (gildedRose.goods[0]).quality);
+			assertEquals(5, gildedRose.goods[1].quality);
+			
+		}
+		
+		//Backstage passes
+		@Test
+		public void should_quality_add_one_when_one_shop_given_backstagepasses_goods_sellin_greater_than_ten() {
+
+			
+			
+			BackstagePassesGoods[] items = new BackstagePassesGoods[] { new BackstagePassesGoods("ageBrie1", 11, 10),
+					new BackstagePassesGoods("ageBrie2", 0, 5) };
+			GildedRose gildedRose = new GildedRose(items);
+
+			gildedRose.updateQuality();
+			
+			assertEquals(11, (gildedRose.goods[0]).quality);
+			assertEquals(6, gildedRose.goods[1].quality);
+			
+		}
+		
+		
+		
 	
 }
