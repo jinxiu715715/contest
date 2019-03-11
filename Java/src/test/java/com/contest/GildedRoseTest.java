@@ -3,6 +3,7 @@ package com.contest;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,4 +34,23 @@ public class GildedRoseTest {
 		assertEquals(18, (gildedRose.items[0]).quality);
 		assertEquals(8, gildedRose.items[1].quality);
 	}
+	
+	
+	//Quality of an item is never negative
+	@Test
+	public void should_quality_never_negative_when_one_shop_given_normal_goods_date_passed() {
+
+		NormalGoods[] items = new NormalGoods[] { new NormalGoods("normal1", 0, 0),
+				new NormalGoods("normal2", 0, 1) };
+		GildedRose gildedRose = new GildedRose(items);
+
+		gildedRose.updateQuality();
+		
+		assertTrue(gildedRose.items[0].quality >= 0);
+		assertTrue(gildedRose.items[1].quality >= 0);
+		
+		
+		
+	}
+	
 }
